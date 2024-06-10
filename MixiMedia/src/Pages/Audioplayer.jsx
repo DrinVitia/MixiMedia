@@ -8,6 +8,7 @@ import {
   FaVolumeMute,
 } from "react-icons/fa";
 import Preloader from "../Pages/Preloader";
+import PixiImage from "../Pixi/PixiImage";
 
 const audioList = [
   {
@@ -118,11 +119,7 @@ function AudioPlayer() {
   return (
     <div className="flex flex-col items-center space-y-4 bg-white shadow-lg rounded-lg p-4 w-80">
       <div className="w-64 h-64">
-        <img
-          src={audioList[currentTrack].img}
-          alt={audioList[currentTrack].title}
-          className="w-full h-full object-cover rounded-lg"
-        />
+        <PixiImage src={audioList[currentTrack].img} />
       </div>
       <div className="text-center">
         <h2 className="text-xl font-bold">{audioList[currentTrack].title}</h2>
