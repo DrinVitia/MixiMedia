@@ -26,7 +26,7 @@ const audioList = [
     src: "../Public/Running Outta Time.mp3",
     title: "Running Outta Time",
     artist: "Future",
-    img: "../Public/images/runningouttatime.png",
+    img: "../Public/images/running1.jpg",
   },
 ];
 
@@ -63,11 +63,11 @@ const Carousel = ({ onSlideChange }) => {
       <Slider {...settings}>
         {audioList.map((audio, index) => (
           <div key={index} className="flex flex-col items-center p-2">
-            <div className="bg-gray-100 rounded-2xl h-64 w-64 flex justify-center items-center shadow-md">
+            <div className="bg-stone-300 rounded-2xl h-64 w-64 flex justify-center items-center shadow-md">
               <img
                 src={audio.img}
                 alt={audio.title}
-                className="rounded-2xl h-56 w-56"
+                className="rounded-md h-56 w-56"
               />
             </div>
           </div>

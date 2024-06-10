@@ -15,7 +15,7 @@ const audioList = [
     src: "../Public/MELTDOWN (feat. Drake).mp3",
     title: "MELTDOWN (feat. Drake)",
     artist: "Travis Scott",
-    img: "../Public/images/meltdown.jpg",
+    img: "../Public/images/travis.jpg",
   },
   {
     src: "../Public/Freeze Raël.mp3",
@@ -33,7 +33,7 @@ const audioList = [
     src: "../Public/Runnin Outta Time.mp3",
     title: "Running Outta Time",
     artist: "Future",
-    img: "../Public/images/runningouttatime.png",
+    img: "../Public/images/running1.jpg",
   },
 ];
 
@@ -117,8 +117,8 @@ function AudioPlayer() {
   }, [currentTrack]);
 
   return (
-    <div className="flex flex-col items-center space-y-4 bg-white shadow-lg rounded-lg p-4 w-80">
-      <div className="w-64 h-64">
+    <div className="flex flex-col items-center space-y-4 bg-stone-300 shadow-lg rounded-lg p-4 w-96">
+      <div className="w-92 h-92 rounded-full overflow-hidden">
         <PixiImage src={audioList[currentTrack].img} />
       </div>
       <div className="text-center">
