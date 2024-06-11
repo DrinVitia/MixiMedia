@@ -2,8 +2,8 @@ import React from "react";
 
 function Preloader() {
   return (
-    <div className="flex justify-center items-center">
-      <div className="w-8 h-8 border-4 border-t-4 border-t-blue-500 border-gray-200 rounded-full animate-spin"></div>
+    <div className="flex justify-center items-center h-screen bg-stone-300">
+      <div className="w-16 h-16 border-8 border-t-8 border-t-stone-500 border-gray-200 rounded-full animate-spin"></div>
     </div>
   );
 }

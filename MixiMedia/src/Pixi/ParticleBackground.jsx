@@ -10,10 +10,8 @@ import {
 const ParticleBackground = () => {
   useEffect(() => {
     (async () => {
-      // Create a new application
       const app = new Application();
 
-      // Initialize the application
       await app.init({
         backgroundColor: "brown",
         resizeTo: window,
@@ -26,7 +24,6 @@ const ParticleBackground = () => {
         },
       });
 
-      // Append the application canvas to the document body
       document.body.appendChild(app.canvas);
 
       const path = new GraphicsPath()
