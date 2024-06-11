@@ -59,15 +59,15 @@ const Carousel = ({ onSlideChange }) => {
   };
 
   return (
-    <div className="w-1/2 relative">
+    <div className=" w-4/5 relative">
       <Slider {...settings}>
         {audioList.map((audio, index) => (
           <div key={index} className="flex flex-col items-center p-2">
-            <div className="bg-stone-300 rounded-2xl h-64 w-64 flex justify-center items-center shadow-md">
+            <div className="rounded-2xl h-64 w-64 flex justify-center items-center">
               <img
                 src={audio.img}
                 alt={audio.title}
-                className="rounded-md h-56 w-56"
+                className="rounded-md h-56 w-56 shadow-lg"
               />
             </div>
           </div>

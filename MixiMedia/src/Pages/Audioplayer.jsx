@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import Preloader from "../Pages/Preloader";
 import PixiImage from "../Pixi/PixiImage";
+import Carousel from "../Pages/Carousel";
 
 const audioList = [
   {
@@ -117,7 +118,7 @@ function AudioPlayer() {
   }, [currentTrack]);
 
   return (
-    <div className="flex flex-col items-center space-y-4 bg-stone-300 shadow-lg rounded-lg p-4 w-96">
+    <div className="flex flex-col items-center space-y-4 bg-stone-300 shadow-lg rounded-lg p-8 w-1/2">
       <div className="w-92 h-92 rounded-full overflow-hidden">
         <PixiImage src={audioList[currentTrack].img} />
       </div>
@@ -150,27 +151,37 @@ function AudioPlayer() {
               className="text-3xl text-black cursor-pointer hover:text-gray-900"
             />
           </div>
-          <div className="w-full flex items-center">
-            <span className="text-gray-600">{formatTime(currentTime)}</span>
+          <div className="w-full flex items-center justify-center">
+            <span className="text-gray-600 mr-2">
+              {formatTime(currentTime)}
+            </span>
             <input
               type="range"
               value={(currentTime / duration) * 100 || 0}
               onChange={handleSeek}
-              className="w-full mx-2"
+              className="w-2/4 appearance-none bg-transparent [&::-webkit-slider-runnable-track]:rounded-full 
+[&::-webkit-slider-runnable-track]:bg-black/25 
+[&::-webkit-slider-thumb]:appearance-none 
+[&::-webkit-slider-thumb]:h-4
+[&::-webkit-slider-thumb]:w-4
+[&::-webkit-slider-thumb]:rounded-full
+[&::-webkit-slider-thumb]:bg-slate-900"
+              min="0"
+              max="100"
             />
-            <span className="text-gray-600">{formatTime(duration)}</span>
+            <span className="text-gray-600 ml-2">{formatTime(duration)}</span>
           </div>
         </>
       )}
-      <div className="flex items-center w-full mt-4">
+      <div className="flex items-center justify-center w-full mt-4">
         {isMuted ? (
           <FaVolumeMute
-            className="text-gray-600 mr-2 cursor-pointer"
+            className="text-gray-600 mr-2 cursor-pointer text-sm"
             onClick={handleMute}
           />
         ) : (
           <FaVolumeUp
-            className="text-gray-600 mr-2 cursor-pointer"
+            className="text-gray-600 mr-2 cursor-pointer text-sm"
             onClick={handleMute}
           />
         )}
@@ -178,19 +189,23 @@ function AudioPlayer() {
           type="range"
           value={isMuted ? 0 : volume * 100}
           onChange={handleVolumeChange}
-          className="w-full
-          appearance-none bg-transparent [&::-webkit-slider-runnable-track]:rounded-full 
-  [&::-webkit-slider-runnable-track]:bg-black/25 
-  [&::-webkit-slider-thumb]:appearance-none 
-  [&::-webkit-slider-thumb]:h-5 
-  [&::-webkit-slider-thumb]:w-5 
-  [&::-webkit-slider-thumb]:rounded-full
-  [&::-webkit-slider-thumb]:bg-slate-900"
+          className="w-2/4 appearance-none bg-transparent [&::-webkit-slider-runnable-track]:rounded-full 
+[&::-webkit-slider-runnable-track]:bg-black/25 
+[&::-webkit-slider-thumb]:appearance-none 
+[&::-webkit-slider-thumb]:h-4
+[&::-webkit-slider-thumb]:w-4
+[&::-webkit-slider-thumb]:rounded-full
+[&::-webkit-slider-thumb]:bg-slate-900"
           min="0"
           max="100"
         />
       </div>
       <audio ref={audioRef} src={audioList[currentTrack].src} />
+      <div className="mt-8 w-full flex justify-center">
+        <Carousel
+          onSlideChange={(next) => console.log("Slide changed to: ", next)}
+        />
+      </div>
     </div>
   );
 }
