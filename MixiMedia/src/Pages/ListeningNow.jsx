@@ -8,6 +8,8 @@ const REFRESH_TOKEN =
 let accessToken =
   "BQDLqIrCtPEDGXhR0A9LjPvpQ49QBqLYAk-tcMwZhNZ7IV0yLH9qcG7sXqI9iEr3LUVzM5yk42F5NjgZ8XQ7503jyuKAa4Curz5Z106Ys42Bcy1Ds8RCI5YPnOka4hFGtz3rRnUigpVO3pfME8yul7X5FrVMAb3EfWIhGc6xg_yYTI44rMP7zuyxPwucHDXruusLc-SPs4k";
 
+const playlistId = "0HGGuCOCtGIlQE8BaY4dez";
+
 function refreshAccessToken() {
   return fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
@@ -76,10 +78,10 @@ const ListeningNow = () => {
       {loading ? (
         <Preloader />
       ) : (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-stone-500 p-4">
+        <div className="flex flex-row items-center justify-center min-h-screen bg-stone-500 p-4">
           <iframe
             id="embed"
-            className="mt-4 rounded-lg"
+            className="mt-8 rounded-lg"
             src={`https://open.spotify.com/embed/track/${track.id}`}
             width="800"
             height="500"
@@ -87,6 +89,16 @@ const ListeningNow = () => {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
+          <iframe
+            title="Spotify Embed: Recommendation Playlist "
+            src={`https://open.spotify.com/embed/playlist/0HGGuCOCtGIlQE8BaY4dez?utm_source=generator&theme=0`}
+            width="800"
+            height="500"
+            style={{ minHeight: "160px", marginLeft: "20px" }}
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          />
         </div>
       )}
     </>

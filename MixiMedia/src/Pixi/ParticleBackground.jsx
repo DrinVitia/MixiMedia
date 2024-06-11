@@ -13,7 +13,7 @@ const ParticleBackground = () => {
       const app = new Application();
 
       await app.init({
-        backgroundColor: "brown",
+        backgroundColor: 0xD3D3D3,
         resizeTo: window,
         antialias: true,
         style: {
@@ -44,12 +44,12 @@ const ParticleBackground = () => {
         const y = Math.random() * app.screen.height;
 
         const mesh = new Mesh({
-          geometry,
-          texture: Texture.WHITE,
-          x,
-          y,
-          tint: Math.random() * 0xffffff,
-        });
+        geometry,
+        texture: Texture.WHITE,
+        x,
+        y,
+        tint: [0x575655, 0x2b2b2a, 0x292524, 0x787776][Math.floor(Math.random() * 4)],
+      });
 
         app.stage.addChild(mesh);
 
