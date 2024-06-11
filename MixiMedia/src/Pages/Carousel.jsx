@@ -40,6 +40,15 @@ const Carousel = ({ onSlideChange }) => {
     beforeChange: (current, next) => onSlideChange(next),
     responsive: [
       {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
         breakpoint: 1028,
         settings: {
           slidesToShow: 2,
