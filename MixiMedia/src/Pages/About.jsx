@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ParticleBackground from "../Pixi/ParticleBackground";
 import Preloader from "../Pages/Preloader";
+import Asap from "../assets/images/asap.jpg";
 
 const About = () => {
   const [loading, setLoading] = useState(true);
@@ -30,7 +31,7 @@ const About = () => {
                 CSS. It uses the Web Audio to play audio files.
               </p>
               <img
-                src="/images/asap.jpg"
+                src={Asap}
                 width={400}
                 height={400}
                 alt="ASAP ROCKY"

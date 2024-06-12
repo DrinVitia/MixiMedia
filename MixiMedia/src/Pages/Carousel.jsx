@@ -3,32 +3,43 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import Meltdown from "../assets/MELTDOWN (feat. Drake).mp3"
+import MeltdownImg from "../assets/images/Meltdown.jpg"
+import FreezeRaël from "../assets/Freeze Raël.mp3"
+import FreezeRaëlImg from "../assets/images/freezerael.jpg"
+import Redbone from "../assets/Redbone.mp3"
+import RedboneImg from "../assets/images/redbone.jpg"
+import RunningOuttaTime from "../assets/Runnin Outta Time.mp3"
+import RunningOuttaTimeImg from "../assets/images/running1.jpg"
+
+
 const audioList = [
   {
-    src: "../Public/MELTDOWN (feat. Drake).mp3",
+    src: Meltdown,
     title: "MELTDOWN (feat. Drake)",
     artist: "Travis Scott",
-    img: "../Public/images/meltdown.jpg",
+    img: MeltdownImg,
   },
   {
-    src: "../Public/Freeze Raël.mp3",
+    src: FreezeRaël,
     title: "Freeze Raël",
     artist: "Freeze Corleone",
-    img: "../Public/images/freezerael.jpg",
+    img: FreezeRaëlImg,
   },
   {
-    src: "../Public/Redbone.mp3",
+    src: Redbone,
     title: "Redbone",
     artist: "Childish Gambino",
-    img: "../Public/images/redbone.jpg",
+    img: RedboneImg,
   },
   {
-    src: "../Public/Running Outta Time.mp3",
+    src: RunningOuttaTime,
     title: "Running Outta Time",
     artist: "Future",
-    img: "../Public/images/running1.jpg",
+    img: RunningOuttaTimeImg,
   },
 ];
+
 
 const Carousel = ({ onSlideChange }) => {
   const settings = {

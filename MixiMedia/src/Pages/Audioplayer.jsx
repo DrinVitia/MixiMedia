@@ -7,34 +7,43 @@ import {
   FaVolumeUp,
   FaVolumeMute,
 } from "react-icons/fa";
-import Preloader from "../Pages/Preloader";
 import PixiImage from "../Pixi/PixiImage";
 import Carousel from "../Pages/Carousel";
 
+import Meltdown from "../assets/MELTDOWN (feat. Drake).mp3"
+import MeltdownImg from "../assets/images/Meltdown.jpg"
+import FreezeRaël from "../assets/Freeze Raël.mp3"
+import FreezeRaëlImg from "../assets/images/freezerael.jpg"
+import Redbone from "../assets/Redbone.mp3"
+import RedboneImg from "../assets/images/redbone.jpg"
+import RunningOuttaTime from "../assets/Runnin Outta Time.mp3"
+import RunningOuttaTimeImg from "../assets/images/running1.jpg"
+
+
 const audioList = [
   {
-    src: "../Public/MELTDOWN (feat. Drake).mp3",
+    src: Meltdown,
     title: "MELTDOWN (feat. Drake)",
     artist: "Travis Scott",
-    img: "../Public/images/travis.jpg",
+    img: MeltdownImg,
   },
   {
-    src: "../Public/Freeze Raël.mp3",
+    src: FreezeRaël,
     title: "Freeze Raël",
     artist: "Freeze Corleone",
-    img: "../Public/images/freezerael.jpg",
+    img: FreezeRaëlImg,
   },
   {
-    src: "../Public/Redbone.mp3",
+    src: Redbone,
     title: "Redbone",
     artist: "Childish Gambino",
-    img: "../Public/images/redbone.jpg",
+    img: RedboneImg,
   },
   {
-    src: "../Public/Runnin Outta Time.mp3",
+    src: RunningOuttaTime,
     title: "Running Outta Time",
     artist: "Future",
-    img: "../Public/images/running1.jpg",
+    img: RunningOuttaTimeImg,
   },
 ];
 
@@ -47,7 +56,6 @@ function formatTime(seconds) {
 function AudioPlayer() {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [currentTrack, setCurrentTrack] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -96,7 +104,6 @@ function AudioPlayer() {
 
   useEffect(() => {
     const handleCanPlay = () => {
-      setIsLoading(false);
       setDuration(audioRef.current.duration);
       if (isPlaying) {
         audioRef.current.play();
@@ -113,10 +120,6 @@ function AudioPlayer() {
     };
   }, [currentTrack, isPlaying]);
 
-  useEffect(() => {
-    setIsLoading(true);
-  }, [currentTrack]);
-
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-r from-stone-600 to-stone-800">
       <div className="flex-1 flex flex-col justify-center items-center">
@@ -130,10 +133,6 @@ function AudioPlayer() {
             </h2>
             <p className="text-gray-600">{audioList[currentTrack].artist}</p>
           </div>
-          {isLoading ? (
-            <Preloader />
-          ) : (
-            <>
               <div className="flex items-center space-x-4">
                 <FaStepBackward
                   onClick={playPrevious}
@@ -177,8 +176,6 @@ function AudioPlayer() {
                   {formatTime(duration)}
                 </span>
               </div>
-            </>
-          )}
           <div className="flex items-center justify-center w-full mt-4">
             {isMuted ? (
               <FaVolumeMute
