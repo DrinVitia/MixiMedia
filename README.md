@@ -42,10 +42,10 @@ MixiMedia is an audio player application built with React, Tailwind CSS, and Pix
 
 3. Create a `.env` file in the root of the project and add your Spotify API credentials:
     ```env
-    REACT_APP_SPOTIFY_CLIENT_ID=your_client_id
-    REACT_APP_SPOTIFY_CLIENT_SECRET=your_client_secret
-    REACT_APP_SPOTIFY_REFRESH_TOKEN=your_refresh_token
-    REACT_APP_SPOTIFY_ACCESS_TOKEN=your_access_token
+    VITE_SPOTIFY_CLIENT_ID=your_client_id
+    VITE_SPOTIFY_CLIENT_SECRET=your_client_secret
+    VITE_SPOTIFY_REFRESH_TOKEN=your_refresh_token
+    VITE_SPOTIFY_ACCESS_TOKEN=your_access_token
     ```
 
 4. Start the development server:
