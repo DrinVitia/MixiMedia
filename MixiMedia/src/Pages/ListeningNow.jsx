@@ -78,27 +78,30 @@ const ListeningNow = () => {
       {loading ? (
         <Preloader />
       ) : (
-        <div className="flex flex-row items-center justify-center min-h-screen bg-stone-500 p-4">
-          <iframe
-            id="embed"
-            className="mt-8 rounded-lg"
-            src={`https://open.spotify.com/embed/track/${track.id}`}
-            width="800"
-            height="500"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
-          <iframe
-            title="Spotify Embed: Recommendation Playlist "
-            src={`https://open.spotify.com/embed/playlist/0HGGuCOCtGIlQE8BaY4dez?utm_source=generator&theme=0`}
-            width="800"
-            height="500"
-            style={{ minHeight: "160px", marginLeft: "20px" }}
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          />
+        <div className="flex flex-col items-center justify-center min-h-screen bg-stone-500 p-4">
+          <div className="flex flex-row items-center justify-center">
+            <iframe
+              id="embed"
+              className="mt-24 rounded-lg"
+              src={`https://open.spotify.com/embed/track/${track.id}`}
+              width="800"
+              height="500"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              style={{ minHeight: "500px", marginLeft: "20px" }} // Ensure consistency in style
+            ></iframe>
+            <iframe
+              title="Spotify Embed: Recommendation Playlist"
+              src={`https://open.spotify.com/embed/playlist/0HGGuCOCtGIlQE8BaY4dez?utm_source=generator&theme=0`}
+              width="800"
+              height="500"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              style={{ minHeight: "500px", marginLeft: "20px" }} // Apply the same style here
+            />
+          </div>
         </div>
       )}
     </>

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ParticleBackground from "../Pixi/ParticleBackground";
 import Preloader from "../Pages/Preloader";
-import Asap from "../assets/images/asap.jpg";
+// import Asap from "../assets/images/asap.jpg";
+import Myvideo from "../assets/21 Savage - redrum.mp4";
+// import RunningOuttaTimeImg from "../assets/images/running1.jpg"
 
 const About = () => {
   const [loading, setLoading] = useState(true);
@@ -30,12 +32,18 @@ const About = () => {
                 MixiMedia is a music player app built with React and Tailwind
                 CSS. It uses the Web Audio to play audio files.
               </p>
-              <img
-                src={Asap}
-                width={400}
-                height={400}
-                alt="ASAP ROCKY"
-              />
+              <video
+                title="My Video"
+                src={Myvideo}
+                style={{ maxWidth: "100%", width: "800px", height: "500px" }}
+                controls
+                autoPlay
+                muted
+                loop
+                frameBorder="0"
+                allowFullScreen
+                loading="lazy"
+              ></video>
             </div>
           </div>
         </div>
