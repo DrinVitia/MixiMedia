@@ -36,10 +36,11 @@ const About = () => {
                 title="My Video"
                 src={Myvideo}
                 style={{ maxWidth: "100%", width: "800px", height: "500px" }}
-                controls
+                controls={false}
                 autoPlay
                 muted
                 loop
+                preload="auto"
                 frameBorder="0"
                 allowFullScreen
                 loading="lazy"

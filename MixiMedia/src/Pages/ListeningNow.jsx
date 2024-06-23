@@ -8,8 +8,6 @@ const REFRESH_TOKEN =
 let accessToken =
   "BQDLqIrCtPEDGXhR0A9LjPvpQ49QBqLYAk-tcMwZhNZ7IV0yLH9qcG7sXqI9iEr3LUVzM5yk42F5NjgZ8XQ7503jyuKAa4Curz5Z106Ys42Bcy1Ds8RCI5YPnOka4hFGtz3rRnUigpVO3pfME8yul7X5FrVMAb3EfWIhGc6xg_yYTI44rMP7zuyxPwucHDXruusLc-SPs4k";
 
-const playlistId = "0HGGuCOCtGIlQE8BaY4dez";
-
 function refreshAccessToken() {
   return fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
@@ -89,7 +87,7 @@ const ListeningNow = () => {
               frameBorder="0"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
-              style={{ minHeight: "500px", marginLeft: "20px" }} // Ensure consistency in style
+              style={{ minHeight: "500px", marginLeft: "20px" }}
             ></iframe>
             <iframe
               title="Spotify Embed: Recommendation Playlist"
@@ -99,7 +97,7 @@ const ListeningNow = () => {
               frameBorder="0"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
-              style={{ minHeight: "500px", marginLeft: "20px" }} // Apply the same style here
+              style={{ minHeight: "500px", marginLeft: "20px" }}
             />
           </div>
         </div>
