@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Preloader from "../Pages/Preloader";
 
-const CLIENT_ID = "5904571c462c415a9357865a6639c5b3";
-const CLIENT_SECRET = "57c7ce0dc2014f47a82aeb737ce18987";
-const REFRESH_TOKEN =
-  "AQBJz5lUAILSryzpB5iq_wQCCNTf4hcLLYHSGI8QouGaP1YCzOqEI8PxEWnNlmGiLwNu6FV9PTnt9y7eStKdi58TKhlvVEw6z98RDOoFInndzmCWqOt1gkAc0xEXk2tJQpQ";
-let accessToken =
-  "BQDLqIrCtPEDGXhR0A9LjPvpQ49QBqLYAk-tcMwZhNZ7IV0yLH9qcG7sXqI9iEr3LUVzM5yk42F5NjgZ8XQ7503jyuKAa4Curz5Z106Ys42Bcy1Ds8RCI5YPnOka4hFGtz3rRnUigpVO3pfME8yul7X5FrVMAb3EfWIhGc6xg_yYTI44rMP7zuyxPwucHDXruusLc-SPs4k";
-
+const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+const CLIENT_SECRET = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
+const REFRESH_TOKEN = import.meta.env.VITE_SPOTIFY_REFRESH_TOKEN;
+let accessToken = import.meta.env.VITE_SPOTIFY_ACCESS_TOKEN;
 function refreshAccessToken() {
   return fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
