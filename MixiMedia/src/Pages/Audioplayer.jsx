@@ -10,15 +10,14 @@ import {
 import PixiImage from "../Pixi/PixiImage";
 import Carousel from "../Pages/Carousel";
 
-import Meltdown from "../assets/MELTDOWN (feat. Drake).mp3"
-import MeltdownImg from "../assets/images/Meltdown.jpg"
-import FreezeRaël from "../assets/Freeze Raël.mp3"
-import FreezeRaëlImg from "../assets/images/freezerael.jpg"
-import Redbone from "../assets/Redbone.mp3"
-import RedboneImg from "../assets/images/redbone.jpg"
-import RunningOuttaTime from "../assets/Runnin Outta Time.mp3"
-import RunningOuttaTimeImg from "../assets/images/running1.jpg"
-
+import Meltdown from "../assets/MELTDOWN (feat. Drake).mp3";
+import MeltdownImg from "../assets/images/Meltdown.jpg";
+import FreezeRaël from "../assets/Freeze Raël.mp3";
+import FreezeRaëlImg from "../assets/images/freezerael.jpg";
+import Redbone from "../assets/Redbone.mp3";
+import RedboneImg from "../assets/images/redbone.jpg";
+import RunningOuttaTime from "../assets/Runnin Outta Time.mp3";
+import RunningOuttaTimeImg from "../assets/images/running1.jpg";
 
 const audioList = [
   {
@@ -120,6 +119,14 @@ function AudioPlayer() {
     };
   }, [currentTrack, isPlaying]);
 
+  document.body.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      let title = audioList[currentTrack].title;
+      let artist = audioList[currentTrack].artist;
+      window.open(`https://open.spotify.com/search/${title}%20${artist}`);
+    }
+  });
+
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-r from-stone-600 to-stone-800">
       <div className="flex-1 flex flex-col justify-center items-center">
@@ -133,49 +140,47 @@ function AudioPlayer() {
             </h2>
             <p className="text-gray-600">{audioList[currentTrack].artist}</p>
           </div>
-              <div className="flex items-center space-x-4">
-                <FaStepBackward
-                  onClick={playPrevious}
-                  className="text-sm sm:text-md md:text-3xl text-black cursor-pointer hover:text-gray-900"
-                />
-                {isPlaying ? (
-                  <FaPause
-                    onClick={togglePlay}
-                    className="text-sm sm:text-md md:text-3xl text-black cursor-pointer hover:text-gray-900"
-                  />
-                ) : (
-                  <FaPlay
-                    onClick={togglePlay}
-                    className="text-sm sm:text-md md:text-3xl text-black cursor-pointer hover:text-gray-900"
-                  />
-                )}
-                <FaStepForward
-                  onClick={playNext}
-                  className="text-sm sm:text-md md:text-3xl text-black cursor-pointer hover:text-gray-900"
-                />
-              </div>
-              <div className="w-full flex items-center justify-center">
-                <span className="text-gray-600 mr-2">
-                  {formatTime(currentTime)}
-                </span>
-                <input
-                  type="range"
-                  value={(currentTime / duration) * 100 || 0}
-                  onChange={handleSeek}
-                  className="w-2/4 appearance-none bg-transparent [&::-webkit-slider-runnable-track]:rounded-full 
+          <div className="flex items-center space-x-4">
+            <FaStepBackward
+              onClick={playPrevious}
+              className="text-sm sm:text-md md:text-3xl text-black cursor-pointer hover:text-gray-900"
+            />
+            {isPlaying ? (
+              <FaPause
+                onClick={togglePlay}
+                className="text-sm sm:text-md md:text-3xl text-black cursor-pointer hover:text-gray-900"
+              />
+            ) : (
+              <FaPlay
+                onClick={togglePlay}
+                className="text-sm sm:text-md md:text-3xl text-black cursor-pointer hover:text-gray-900"
+              />
+            )}
+            <FaStepForward
+              onClick={playNext}
+              className="text-sm sm:text-md md:text-3xl text-black cursor-pointer hover:text-gray-900"
+            />
+          </div>
+          <div className="w-full flex items-center justify-center">
+            <span className="text-gray-600 mr-2">
+              {formatTime(currentTime)}
+            </span>
+            <input
+              type="range"
+              value={(currentTime / duration) * 100 || 0}
+              onChange={handleSeek}
+              className="w-2/4 appearance-none bg-transparent [&::-webkit-slider-runnable-track]:rounded-full 
 [&::-webkit-slider-runnable-track]:bg-black/25 
 [&::-webkit-slider-thumb]:appearance-none 
 [&::-webkit-slider-thumb]:h-4
 [&::-webkit-slider-thumb]:w-4
 [&::-webkit-slider-thumb]:rounded-full
 [&::-webkit-slider-thumb]:bg-slate-900"
-                  min="0"
-                  max="100"
-                />
-                <span className="text-gray-600 ml-2">
-                  {formatTime(duration)}
-                </span>
-              </div>
+              min="0"
+              max="100"
+            />
+            <span className="text-gray-600 ml-2">{formatTime(duration)}</span>
+          </div>
           <div className="flex items-center justify-center w-full mt-4">
             {isMuted ? (
               <FaVolumeMute
